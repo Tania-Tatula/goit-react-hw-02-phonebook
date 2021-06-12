@@ -44,6 +44,12 @@ getVisibleContacts =() =>{
 
 }
 
+deleteContacts = (contactId) =>{
+  this.setState(prevState =>({
+    contacts: prevState.contacts.filter(contact => contact.id !== contactId),
+  }))
+}
+
   render() {
     
     return (
@@ -52,7 +58,7 @@ getVisibleContacts =() =>{
       <ContactForm onSubmit={this.formSubmitHandler}/>
       <h2>Contacts</h2>
       <Filter value={this.state.filter} onChange={this.changeFilter}/>
-      <ContactList contactList={this.getVisibleContacts()}/>
+      <ContactList contactList={this.getVisibleContacts()} onDeleteContact ={this.deleteContacts}/>
       
     </div>
     )}
