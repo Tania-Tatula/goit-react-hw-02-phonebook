@@ -21,15 +21,18 @@ class App extends Component {
 
 
 formSubmitHandler = contact =>{
+  const {contacts} = this.state;
+  const names = contacts.map(contact => contact.name);
+  names.includes(contact.name)?
+    alert(`${contact.name} is already in contacts.`) :
 
-  console.log(contact);
   this.setState(prevState =>({
     contacts: [contact, ...prevState.contacts]
    }))
-
-   console.log(this.state.contacts);
+  
 
 }
+
 changeFilter =(evt) =>{
   this.setState({filter: evt.currentTarget.value})
 }
@@ -42,8 +45,6 @@ getVisibleContacts =() =>{
 }
 
   render() {
-    // const filterLowerCase = this.state.filter.toLowerCase();
-    // const visibleContact = this.state.contacts.filter(contact => contact.name.toLowerCase().includes(filterLowerCase));
     
     return (
     <div className="App">
