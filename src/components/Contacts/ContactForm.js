@@ -1,6 +1,7 @@
 import { Component } from "react";
 import shortid from "shortid";
 
+
 import styles from "./Contacts.module.css";
 
 class ContactForm extends Component {
